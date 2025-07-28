@@ -9,6 +9,9 @@ export function MeetCoachSection() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
+  // Color configuration - matching main page
+  const primaryColor = "#68715E" // Green
+
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
@@ -37,7 +40,7 @@ export function MeetCoachSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#0a0a0a] overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div
           className={cn(
@@ -45,10 +48,15 @@ export function MeetCoachSection() {
             isVisible ? "opacity-100" : "opacity-0",
           )}
         >
-          <div className="inline-block px-4 py-1 mb-4 bg-[#003366]">
-            <span className="text-sm font-medium uppercase tracking-wider">Jouw coach</span>
+          <div
+            className={cn(
+              "inline-block px-4 py-1 mb-4", 
+              isVisible ? "opacity-100" : "opacity-0",
+            )}
+          >
+            <span className="text-sm font-medium uppercase tracking-wider text-white">Onze trainers</span>
           </div>
-          <h2 className="text-3xl font-bold mb-16 tracking-tight">Ontmoet je coach</h2>
+          <h2 className="text-3xl font-bold mb-16 tracking-tight text-gray-900">Ontmoet je coach</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -59,11 +67,11 @@ export function MeetCoachSection() {
               isVisible ? "animate-in fade-in slide-in-from-left-16" : "opacity-0 -translate-x-16",
             )}
           >
-            <div className="absolute inset-0 bg-[#a50100]/10 -m-4"></div>
+            <div className="absolute inset-0" style={{ backgroundColor: `${primaryColor}1A` }} />
             <div className="absolute inset-0 m-4">
               <Image
-                src="/ptkragt.webp"
-                alt="Julien, personal coach"
+                src="/body2coachpts.webp"
+                alt="Team van Body2Coach trainers"
                 fill
                 className="object-cover object-center"
               />
@@ -77,34 +85,35 @@ export function MeetCoachSection() {
               isVisible ? "animate-in fade-in slide-in-from-right-16" : "opacity-0 translate-x-16",
             )}
           >
-            <h3 className="text-2xl font-bold mb-6">Julien</h3>
-            <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-              Julien is jouw persoonlijke online coach. Met zijn passie voor fitness en een wetenschappelijke
-              benadering helpt hij je om je doelen op het gebied van gewichtsverlies en spieropbouw te bereiken.
+            <h3 className="text-2xl font-bold mb-6 text-gray-900">Al sinds 2013 in Apeldoorn</h3>
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+              Al sinds 2013 is Body2Coach jouw personal trainer in Apeldoorn. Ons ervaren team helpt je met een unieke
+              werkwijze naar het fitte lijf dat je verdient – op een manier die wél vol te houden is.
             </p>
-            <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-              Zijn achtergrond in voedingswetenschap en jarenlange ervaring in krachttraining vormen de basis van zijn
-              coaching. Julien combineert bewezen methoden met praktische tips, zodat jij het beste uit jezelf haalt.
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+              Of je nu individueel, als duo of in een groep traint, wij bieden persoonlijke aandacht, bewezen methoden
+              en blijvende resultaten.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#a50100] rounded-full"></div>
-                <span>Online coach</span>
+                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: primaryColor }}></div>
+                <span className="text-gray-900">Training voor elke situatie</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#a50100] rounded-full"></div>
-                <span>Voedingsdeskundige</span>
+                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: primaryColor }}></div>
+                <span className="text-gray-900">Blijvende resultaten</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#a50100] rounded-full"></div>
-                <span>Gewichtsverlies expert</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#a50100] rounded-full"></div>
-                <span>Spieropbouw specialist</span>
+                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: primaryColor }}></div>
+                <span className="text-gray-900">Grip op je leefstijl</span>
               </div>
             </div>
-            <Button className="bg-[#a50100] hover:bg-[#8a0100] rounded-none text-white">Plan een gesprek</Button>
+            <Button 
+              className="rounded-none text-white hover:opacity-90" 
+              style={{ backgroundColor: primaryColor }}
+            >
+              Plan een gratis intake
+            </Button>
           </div>
         </div>
       </div>
